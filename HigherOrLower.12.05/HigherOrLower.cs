@@ -21,14 +21,24 @@
             Console.WriteLine("Will the next card be Higher (1) or Lower (2) ?");
             int choice = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("You chose " + choice);
-            
+            CheckCard(cardInHand, nextCard, choice);
+        }
+        
+        Console.WriteLine("Thank you for gambling!");
+
+    }
+        
+    private void CheckCard(int cardInHand, int nextCard, int choice)
+    {
             if ( choice == 1 && cardInHand < nextCard )
             {
                 Console.WriteLine($"Your card is {cardInHand}, and the next card is {nextCard}. Higher, you won!");
+                score++;
             }
             else if ( choice == 2 && cardInHand > nextCard)
             {
                 Console.WriteLine($"Your card is {cardInHand}, and the next card is {nextCard}. Lower, you won!");
+                score++;
             }
             else if ( cardInHand == nextCard)
             {
@@ -37,20 +47,25 @@
             else
             {
                 Console.WriteLine($"Your card is {cardInHand}, and the next card is {nextCard}. Whoops, you lose this time!");
+                score--;
             }
             
-            Console.WriteLine("Press Q to quit, or anything else to continue.");
+            Console.WriteLine($"Your score is {score}! Press Q to quit, or anything else to continue.");
             string input = Console.ReadLine();
             
-            if (input.ToLower() == "q")
+            //if (input.ToLower() == "q")
+            //{
+            //    isRunning = false ;
+            //}
+            
+            switch (input.ToLower())
             {
-                isRunning = false ;
+                case "q":
+                    isRunning = false;
+                default:
+                    break;
             }
             
-        }
-        
-        Console.WriteLine("Thank you for gambling!");
-        
     }
     
 }
