@@ -25,7 +25,7 @@
         }
         
         Console.WriteLine("Thank you for gambling!");
-
+        
     }
         
     private void CheckCard(int cardInHand, int nextCard, int choice)
